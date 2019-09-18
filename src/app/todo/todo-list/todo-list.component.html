@@ -1,0 +1,3 @@
+<ul class="todo-list">
+    <app-todo-item *ngFor="let i of todoList$ | async | filterTodos: (currentFilter$ | async).filter" [item]="i"></app-todo-item>
+</ul>

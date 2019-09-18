@@ -1,0 +1,10 @@
+  <!-- These are here just to show the structure of the list items -->
+  <!-- List items should get the class `editing` when editing and `completed` when marked as completed -->
+  <li [class.completed]="item.completed" [class.editing]="editing" >
+    <div class="view">
+      <input class="toggle" type="checkbox" [checked]="item.completed" (change)="changeStatus($event,item.id)">
+      <label (dblclick)="edit()">{{item.description}}</label>
+      <button class="destroy" (click)="delete()"></button>
+    </div>
+    <input class="edit" (blur)="editing=!editing" (keyup.enter)="update()" [(ngModel)]="item.description" #txtEdit>
+  </li>
